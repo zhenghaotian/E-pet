@@ -1,13 +1,29 @@
 <template>
-  <div class="navWrap">
-    <div class="Nav-wrap">
-      <div class="navWrap">
-        <el-menu class="el-menu-demo Nav-inner" mode="horizontal" >
-          <el-menu-item  select="click(index)" class="nav" v-for="(item, index) in datas.menus" :index="index" :key="index" >
-            <router-link :to="navName">{{item.menu_name}}</router-link>
-          </el-menu-item>
-        </el-menu>
-      </div>
+  <div class="nav-Wrap" v-if="datas.menus">
+    <div class="Nav-wrap"  ref="scrollLeft">
+      <el-menu class="el-menu-demo Nav-inner" mode="horizontal" >
+        <router-link to="/homeEpet/home">
+          <el-menu-item class="nav"  index="1">{{datas.menus[0].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="2" >{{datas.menus[1].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="3" >{{datas.menus[2].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="4" >{{datas.menus[3].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="5" >{{datas.menus[4].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="6" >{{datas.menus[5].menu_name}}</el-menu-item>
+        </router-link>
+        <router-link to="/homeEpet/catFoot">
+          <el-menu-item class="nav" index="7" >{{datas.menus[6].menu_name}}</el-menu-item>
+        </router-link>
+      </el-menu>
     </div>
     <div class="contentWrap">
       <router-view></router-view>
@@ -27,29 +43,21 @@
     computed: {
       ...mapState(['datas'])
     },
-    counted () {
-//        alert('aaa')
-//        let wrapper = document.querySelector('.Nav-wrap')
-//        let scroll = new BScroll(wrapper, {
-//          click: true,
-//          scrollX: true
-//        })
-//        setTimeout(() => {
-//          scroll.refresh()
-//        }, 2000)
+    mounted () {
+
+      this.$nextTick(() => {
+
+
+        setTimeout(() => {
+          console.log(this.$refs.scrollLeft);
+          this.scroll = new BScroll(this.$refs.scrollLeft, {
+            click: true,
+            scrollX: true
+          })
+        }, 150)
+      })
     },
-    methoes: {
-      click (index) {
-        alert(index)
-        switch (index) {
-          case 0:
-            this.navName = '/home'
-            break
-          case 1:
-            this.navName = '/catFoot'
-        }
-      }
-    }
+
   }
 </script>
 
@@ -60,14 +68,17 @@
     top 52px
     z-index 10
     .Nav-inner
-      width 200%
+      width 180%
       padding 0 10px
       font-size 14px
       display inline-block
-      .nav
+      a
         display inline-block
+        height 100%
+        .nav
+          display inline-block
   .contentWrap
     position relative
-    top 112px
-    margin-bottom 112px
+    top 115px
+    margin-bottom 115px
 </style>

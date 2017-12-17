@@ -1,7 +1,7 @@
 <template>
   <div class="Carousel-wrap block">
     <el-carousel height="150px" arrow="hover">
-      <el-carousel-item v-for="carousel in url.value" :key="item">
+      <el-carousel-item v-for="(carousel, index) in url.value" :key="index">
         <a :href="carousel.target.param">
           <img class="Carousel-img" :src="carousel.image" alt="">
         </a>
