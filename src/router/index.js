@@ -26,10 +26,6 @@ export default new Router({
         {
           path: 'home',
           component: home
-        },
-        {
-          path: 'catFoot',
-          component: catFoot
         }
       ]
     },
@@ -44,6 +40,10 @@ export default new Router({
     {
       path: '/myPet',
       component: myPet
+    },
+    {
+      path: '/catFoot',
+      component: catFoot
     }
   ]
 })

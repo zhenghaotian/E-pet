@@ -5,22 +5,22 @@
         <router-link to="/homeEpet/home">
           <el-menu-item class="nav"  index="1">{{datas.menus[0].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="2" >{{datas.menus[1].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="3" >{{datas.menus[2].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="4" >{{datas.menus[3].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="5" >{{datas.menus[4].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="6" >{{datas.menus[5].menu_name}}</el-menu-item>
         </router-link>
-        <router-link to="/homeEpet/catFoot">
+        <router-link to="/catFoot">
           <el-menu-item class="nav" index="7" >{{datas.menus[6].menu_name}}</el-menu-item>
         </router-link>
       </el-menu>
@@ -46,10 +46,7 @@
     mounted () {
 
       this.$nextTick(() => {
-
-
         setTimeout(() => {
-          console.log(this.$refs.scrollLeft);
           this.scroll = new BScroll(this.$refs.scrollLeft, {
             click: true,
             scrollX: true

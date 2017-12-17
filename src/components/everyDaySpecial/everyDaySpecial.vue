@@ -6,7 +6,7 @@
         <img class="img1" src="./suprice.png" alt="">
       </a>
       <!--剩余时间-->
-      <span class="text">距本场结束</span>
+      <span class="text">距本场结束 <span class="time">{{m}}</span> : <span class="time">{{s}}</span></span>
       <a href="javascript:;" class="a2">
         <img class="img2" src="./c6b7ac04e8c6cb827365c17bd74aef59.png" alt="">
       </a>
@@ -29,8 +29,52 @@
 <script>
   import {mapState} from 'vuex'
   export default {
+    data () {
+      return {
+        m:'29',
+        s:'59'
+      }
+    },
     computed: {
       ...mapState(['datas'])
+    },
+    mounted () {
+      this.countTime()
+    },
+    methods: {
+      countTime () {
+        let mm = 29
+        let ss = 59
+        let timer = 0
+
+        timer = setInterval(() => {
+          ss--
+          if(ss<0){
+            ss = 59
+            mm--
+          }
+
+          if(mm == 0){
+            clearInterval(timer)
+          }
+          if(mm <10){
+            this.m = '0'+mm
+          }else {
+            this.m = mm+''
+          }
+          if(ss <10){
+            this.s = '0'+ss
+          }else {
+            this.s = ss+''
+          }
+        }, 1000)
+
+
+
+
+
+      }
+
     }
   }
 </script>
@@ -45,8 +89,14 @@
         margin-top 10px
       .text
         display inline-block
+        padding-top 10px
         height 40px
-        line-height 40px
+        line-height 20px
+        .time
+          display inline-block
+          width 20px
+          height 20px
+          border 1px brown solid
       .a2
         float right
         .img2

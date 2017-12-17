@@ -15,7 +15,7 @@
     <!--分割线-->
     <CuttingLine />
     <!--E宠国际-->
-    <EPetInternational />
+    <threeImg :url="datas.datas[7]" />
     <!--分割线-->
     <CuttingLine />
     <!--潮品视频-->
@@ -75,7 +75,7 @@
   import CuttingLine from '../../components/CuttingLine/CuttingLine.vue'
   import everyDaySpecial from '../../components/everyDaySpecial/everyDaySpecial.vue'
   import EPetTeam from '../../components/EPetTeam/EPetTeam.vue'
-  import EPetInternational from '../../components/EPetInternational/EPetInternational.vue'
+  import threeImg from '../../components/threeImg/threeImg.vue'
   import brandSpecial from '../../components/brandSpecial/brandSpecial.vue'
   import experience from '../../components/experience/experience.vue'
   import petVideo from '../../components/video/petVideo.vue'
@@ -90,7 +90,7 @@
       CuttingLine,
       everyDaySpecial,
       EPetTeam,
-      EPetInternational,
+      threeImg,
       brandSpecial,
       experience,
       petVideo
