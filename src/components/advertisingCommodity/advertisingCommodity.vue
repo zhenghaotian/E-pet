@@ -59,17 +59,16 @@
     },
     mounted () {
       this.$nextTick(() => {
-        console.log(this.$refs.goods1)
         setTimeout(() => {
           new BScroll(this.$refs.goods1, {
             click: true,
-            tap: true,
-            scrollX: true
+            scrollX: true,
+            eventPassthrough: 'vertical'
           })
           new BScroll(this.$refs.goods2, {
             click: true,
-            tap: true,
-            scrollX: true
+            scrollX: true,
+            eventPassthrough: 'vertical'
           })
         },100)
       })

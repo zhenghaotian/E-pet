@@ -20,7 +20,7 @@
     </div>
     <div class="foodContent">
       <!--进口主粮-->
-      <div class="content" v-if="tab1">
+      <div class="content" v-show="tab1">
         <div class="item" v-for="(item, index) in catFood.datas[1].data.categorys[0].small_cate.menus" :key="index">
           <a href="https://wap.epet.com/goodslist.html?extend_pam=cateid:722|extends_str:4603|">
             <img :src="item.image" alt="">
@@ -28,7 +28,7 @@
         </div>
       </div>
       <!--国产主粮-->
-      <div class="content" v-if="tab2">
+      <div class="content" v-show="tab2">
         <div class="item" v-for="(item, index) in catFood.datas[1].data.categorys[1].small_cate.menus" :key="index">
           <a href="https://wap.epet.com/goodslist.html?extend_pam=cateid:722|extends_str:4603|">
             <img :src="item.image" alt="">
@@ -36,7 +36,7 @@
         </div>
       </div>
       <!--口味配方-->
-      <div class="content" v-if="tab3">
+      <div class="content" v-show="tab3">
         <div class="item" v-for="(item, index) in catFood.datas[1].data.categorys[2].small_cate.menus" :key="index">
           <a href="https://wap.epet.com/goodslist.html?extend_pam=cateid:722|extends_str:4603|">
             <img :src="item.image" alt="">
@@ -44,7 +44,7 @@
         </div>
       </div>
       <!--单斤价格-->
-      <div class="content" v-if="tab4">
+      <div class="content" v-show="tab4">
         <div class="item" v-for="(item, index) in catFood.datas[1].data.categorys[3].small_cate.menus" :key="index">
           <a href="https://wap.epet.com/goodslist.html?extend_pam=cateid:722|extends_str:4603|">
             <img :src="item.image" alt="">

@@ -16,6 +16,8 @@
     </div>
     <!--2个广告/商品-->
     <advertisingCommodity />
+    <!--商品列表-->
+    <goodList />
   </div>
 </template>
 
@@ -27,6 +29,7 @@
   import foodTab from '../../components/foodTab/foodTab.vue'
   import threeImg from '../../components/threeImg/threeImg.vue'
   import advertisingCommodity from '../../components/advertisingCommodity/advertisingCommodity.vue'
+  import goodList from '../../components/goodList/goodList.vue'
 
   export default {
     mounted () {
@@ -40,7 +43,8 @@
       Carousel,
       foodTab,
       threeImg,
-      advertisingCommodity
+      advertisingCommodity,
+      goodList
     }
   }
 </script>

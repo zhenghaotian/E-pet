@@ -49,7 +49,9 @@
         setTimeout(() => {
           this.scroll = new BScroll(this.$refs.scrollLeft, {
             click: true,
-            scrollX: true
+            scrollX: true,
+            eventPassthrough: 'vertical',
+            bounce: false
           })
         }, 150)
       })

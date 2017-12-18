@@ -1,9 +1,16 @@
 <template>
-  <div>myPet</div>
+  <div class="myPet-wrap">
+    <login />
+  </div>
 </template>
 
 <script>
-  export default {}
+  import login from '../../components/login/login.vue'
+  export default {
+    components: {
+      login
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">

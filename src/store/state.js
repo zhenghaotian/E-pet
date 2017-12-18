@@ -1,4 +1,6 @@
 export default {
   datas: {},
-  catFood: {}
+  catFood: {},
+  classify: [],
+  brand: []
 }

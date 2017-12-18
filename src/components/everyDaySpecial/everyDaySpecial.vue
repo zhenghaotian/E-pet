@@ -12,7 +12,7 @@
       </a>
     </div>
     <!--商品内容-->
-    <div class="everyDay-content">
+    <div class="everyDay-content" ref="every">
       <ul>
         <li v-for="(good, index) in datas.datas[3].goods" :key="index">
           <a href="javascript:;">
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+  import BScroll from 'better-scroll'
   import {mapState} from 'vuex'
   export default {
     data () {
@@ -40,6 +41,16 @@
     },
     mounted () {
       this.countTime()
+
+      this.$nextTick(() => {
+        setTimeout(() => {
+          new BScroll(this.$refs.every, {
+            click: true,
+            scrollX: true,
+            eventPassthrough: 'vertical'
+          })
+        },100)
+      })
     },
     methods: {
       countTime () {
@@ -68,10 +79,6 @@
             this.s = ss+''
           }
         }, 1000)
-
-
-
-
 
       }
 
@@ -104,7 +111,7 @@
     .everyDay-content
       ul
         overflow hidden
-        width 1000%
+        width 120%
         li
           float left
           margin-right 10px
