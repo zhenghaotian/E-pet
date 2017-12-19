@@ -1,6 +1,6 @@
 <template>
   <div class="goodList-wrap" v-if="catFood.datas">
-    <div class="goodList-head" ref="goodlist">
+    <div class="goodList-head demo-affix" ref="goodlist">
       <ul>
         <li class="list" v-for="(item, index) in catFood.datas[6].menus" :key="index" @click="toggleClass(index)">{{item.menu_name}}</li>
       </ul>

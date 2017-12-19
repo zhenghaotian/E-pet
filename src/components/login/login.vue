@@ -33,7 +33,7 @@
       <div class="loginTab2-wrap" v-show="!isShow">
         <div class="tab2-user">
           <span></span>
-          <input type="text" placeholder="已注册的手机号">
+          <input type="text" value="" placeholder="已注册的手机号" v-model="phone">
         </div>
         <div class="tab2-pwd tab2-pwd1">
           <span></span>
@@ -43,7 +43,8 @@
         </div>
         <div class="tab2-pwd">
           <span></span>
-          <input type="text" placeholder="动态密码">
+          <input type="text" placeholder="动态密码" v-model="verifyPassword">
+          <a class="verifyBtn" href="javascript:;" @click="getverifyPwd">获取动态密码</a>
         </div>
       </div>
       <!--主体内容-->
@@ -51,7 +52,7 @@
         <div class="forgetPwd">
           <a href="https://wap.epet.com/login.html?do=findpassword">忘记密码?</a>
         </div>
-        <div class="loginBtn" id="my_button">
+        <div class="loginBtn" @click="phoneLogin">
           登录
         </div>
         <div class="loginWay">
@@ -67,33 +68,67 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   import '../../../static/js/gVerify'
   export default {
     data () {
       return {
-        isShow: true
+        isShow: true,
+        imgPwd: '',
+        phone: '',
+        verifyPassword: ''
       }
     },
     methods: {
       tabLogin (isPhone){
-        console.log(isPhone)
         if(isPhone){
           this.isShow = false
         }else {
           this.isShow = true
         }
+      },
+      getverifyPwd () {
+        let {phone,imgPwd} = this
+        //验证图形验证码
+        var res = this.verifyCode.validate(document.getElementById("code_input").value);
+        imgPwd = res?true:false
+
+        if(imgPwd){
+          let url = `/api/sendcode?phone=${phone}`
+          axios.get(url)
+            .then((req) => {
+              if(req.data.code == 0){
+                console.log('请求短信验证成功!')
+              }
+            },(err) => {
+              console.log('请求短信验证失败!')
+            })
+        }
+
+      },
+      phoneLogin () {
+        let {verifyPassword, phone} = this
+
+        axios.post('/api/login', {
+          phone: phone,
+          code: verifyPassword
+        })
+          .then((req) => {
+            if(req.data.code==0){
+              alert('登录成功')
+            }else {
+              alert('手机号或验证码输入错误')
+            }
+
+          }, (err) => {
+            console.log('发送登录请求失败')
+          })
+
       }
     },
     mounted () {
-      var verifyCode = new GVerify("v_container");
-      document.getElementById("my_button").onclick = function(){
-        var res = verifyCode.validate(document.getElementById("code_input").value);
-        if(res){
-          alert("验证正确");
-        }else{
-          alert("验证码错误");
-        }
-      }
+      this.verifyCode = new GVerify("v_container")
     }
   }
 </script>
@@ -183,6 +218,7 @@
             width 17px
             height 21px
           input
+            width 170px
             color #666
             border none
             outline none
@@ -197,9 +233,18 @@
           span
             background url("https://static.epetbar.com/mpet/images/ico4.png") no-repeat
             background-size contain
+          .verifyBtn
+            display inline-block
+            width 100px
+            height 30px
+            border 1px solid #eb4c33
+            border-radius 5px
+            text-align center
+            line-height 30px
+            vertical-align middle
         .tab2-pwd1
           #v_container
-            vertical-align top
+            vertical-align middle
             display inline-block
             width 85px
             height 30px

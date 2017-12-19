@@ -1,4 +1,4 @@
-import {GETDATA, GETCATFOOD, GETCLASSIFY, GETBRAND} from './types'
+import {GETDATA, GETCATFOOD, GETCLASSIFY, GETBRAND, GETALLBRAND} from './types'
 
 export default {
   /*获取主页内容*/
@@ -17,6 +17,10 @@ export default {
   [GETBRAND] (state, {data}){
     state.brand = data
     console.log('GETBRAND')
+  },
+  [GETALLBRAND] (state, {data}){
+    state.allBrand = data
+    console.log('GETALLBRAND')
   }
 
 }

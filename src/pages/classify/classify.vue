@@ -26,6 +26,8 @@
   .classify-wrap
     background #f3f4f5
     .classify-head
+      position relative
+      z-index 10
       height 40px
       padding-left 35%
       background #ffffff

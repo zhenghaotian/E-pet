@@ -8,8 +8,10 @@
       </ul>
     </div>
     <div class="tab1CardScroll" ref="tab1CardScroll" >
-      <div class="tab1Right-wrap" v-for="(list, index) in classify" v-if="isShow == index" :key="index">
-        <tab1Card v-for="(card, index) in list.cate_list" :card="card" :key="index"/>
+      <div class="tab1CardScroll-inner">
+        <div class="tab1Right-wrap" v-for="(list, index) in classify" v-if="isShow == index" :key="index">
+          <tab1Card v-for="(card, index) in list.cate_list" :card="card" :key="index"/>
+        </div>
       </div>
     </div>
   </div>
@@ -30,11 +32,8 @@
       ...mapState(['classify'])
     },
     mounted () {
-      console.log(this.$refs.tab1Scroll,this.$refs.tab1CardScroll)
       this.$nextTick(() => {
-        console.log(this.$refs.tab1Scroll,this.$refs.tab1CardScroll)
         setTimeout(() => {
-          console.log(this.$refs.tab1Scroll,this.$refs.tab1CardScroll)
           new BScroll(this.$refs.tab1Scroll, {
             click: true,
             scrollY: true,
@@ -64,8 +63,9 @@
   .tab1-wrap
     overflow hidden
     .tab1Left-wrap
+      position absolute
+      z-index 10
       background #fff
-      float left
       width 70px
       height 700px
       ul
@@ -83,7 +83,7 @@
           box-sizing border-box
           padding 15px 0
     .tab1CardScroll
-      height  300px
+      height 570px
       .tab1Right-wrap
         margin-left 75px
         width 300px

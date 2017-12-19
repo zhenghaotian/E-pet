@@ -8,7 +8,7 @@
         </router-link>
       </el-col>
       <el-col :span="6">
-        <router-link to="/classify">
+        <router-link to="/classify/tab1">
           <span class="img2"></span>
         </router-link>
       </el-col>
@@ -32,7 +32,7 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .foot-wrap
-    position fixed
+    position absolute
     z-index 10
     bottom 0px
     width 100%

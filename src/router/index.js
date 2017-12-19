@@ -13,6 +13,8 @@ import shopCar from '../pages/shopCar/shopCar.vue'
 
 import myPet from '../pages/myPet/myPet.vue'
 
+import allBrand from '../pages/allBrand/allBrand.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +59,10 @@ export default new Router({
     {
       path: '/catFoot',
       component: catFoot
+    },
+    {
+      path: '/allBrand',
+      component: allBrand
     }
   ]
 })

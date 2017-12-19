@@ -1,5 +1,5 @@
 <template>
-  <div class="brand-wrap">
+  <div class="brand-wrap" ref="brandScroll">
     <!--内容区-->
     <div class="brand-content">
       <div class="brand-card" v-for="(item, index) in brand" :key="index">
@@ -20,20 +20,35 @@
         <div class="brand-line"></div>
       </div>
     </div>
+    <!--显示全部的跳转图标-->
+    <router-link to="/allBrand" class="allBrand">全部</router-link>
   </div>
 </template>
 
 <script>
+  import BScroll from 'better-scroll'
   import {mapState} from 'vuex'
   export default {
     computed: {
       ...mapState(['brand'])
+    },
+    mounted () {
+      this.$nextTick(() => {
+      setTimeout(() => {
+        new BScroll(this.$refs.brandScroll, {
+          click: true,
+          scrollY: true,
+        })
+      },100)
+    })
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .brand-wrap
+    position relative
+    height 600px
     background #fff
     .brand-content
       .title
@@ -84,4 +99,17 @@
         background #eeee
         width 100%
         height 10px
+    .allBrand
+      position absolute
+      bottom 30px
+      right 10px
+      background rgba(0,0,0,.4)
+      line-height 40px
+      border-radius 50%
+      width 40px
+      height 40px
+      color #fff
+      font-size 12px
+      text-align center
+
 </style>

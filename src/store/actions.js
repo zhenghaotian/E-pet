@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import {GETDATA, GETCATFOOD, GETCLASSIFY, GETBRAND} from './types'
+import {GETDATA, GETCATFOOD, GETCLASSIFY, GETBRAND, GETALLBRAND} from './types'
 
 export default {
   getData ({commit}) {
@@ -37,6 +37,15 @@ export default {
         commit(GETBRAND, {data})
       }, () => {
         console.log('请求classify失败!')
+      })
+  },
+  getAllBrand ({commit}) {
+    axios.get('/api/allBrand')
+      .then((response) => {
+        let data = response.data
+        commit(GETALLBRAND, {data})
+      }, () => {
+        console.log('请求allBrand失败!')
       })
   }
 }
