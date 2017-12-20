@@ -1,8 +1,8 @@
 <template>
   <div class="experience-wrap">
     <div class="experience-head">
-      <img class="experience-img1" src="./0954d3cd070051587d8f4d6af79882aa.jpg" alt="">
-      <img class="experience-img2" src="./017c21f7004f3e834cebd12305d266cc.jpg" alt="">
+      <img class="experience-img1" :src="datas.datas[27].value.left.img.image" alt="">
+      <img class="experience-img2" :src="datas.datas[27].value.right.img.image" alt="">
     </div>
     <div class="experience-carousel">
       <carousel :url="datas.datas[28]"/>

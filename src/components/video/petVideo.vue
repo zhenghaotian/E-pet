@@ -14,7 +14,7 @@
       </a>
       <p class="petVideo-p1">{{url2.value[0].share_target.param.title}}</p>
       <p class="petVideo-p2">
-        <img class="petVideo-logo" src="./view-black.png" alt="">
+        <img class="petVideo-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAMAAADqmnyMAAAASFBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmn+vFLAAAAF3RSTlMAkfcaBuQvDO443tPCJKWA1oh7ejQLpPp7zbUAAACISURBVBjTdZBZDsIwDEQTN2m2rtDy7n9TIitUEdD589PYY9tccuZbw56hrEOH3FNQycNdtgmxKYRkhamZ54wfjWr05Fl9HlGmVPDVGwrYOtZGpRZKMAuQtFCYgJcBqJGxQQfQQYh1GkDXDru2s3RB0boW9H+l3+W7M4/zPPTM24c087rB9nndG6E3ClElpCbnAAAAAElFTkSuQmCC" alt="">
         <span class="petVideo-span1">{{url2.value[0].visit}} | </span>
         <span class="petVideo-span2">{{url2.value[0].time}}</span>
       </p>

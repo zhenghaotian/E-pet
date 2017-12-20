@@ -58,7 +58,7 @@
         display inline-block
         width 32px
         height 25px
-        background url("./mydope.png") no-repeat
+        background url("//static.epetbar.com/static_web/wap/src/images/mydope.png") no-repeat
         background-size 100%
         background-position 0px 0px
 </style>

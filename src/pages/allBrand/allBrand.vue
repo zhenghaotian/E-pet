@@ -46,9 +46,9 @@
     position absolute
     background #fff
     z-index 20
-    .allBrand-content
-      .aaa
-        height 616px
+    .mint-indexlist
+      .mint-indexlist-content
+        margin-right 0px !important
         .letter-wrap
           border-bottom 1px #eee solid
           overflow hidden

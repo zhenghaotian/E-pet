@@ -3,12 +3,12 @@
     <!--头部标题-->
     <div class="everyDay-head">
       <a href="javascript:;" class="a1">
-        <img class="img1" src="./suprice.png" alt="">
+        <img class="img1" src="//static.epetbar.com/static_web/wap/src/images/suprice.png" alt="">
       </a>
       <!--剩余时间-->
       <span class="text">距本场结束 <span class="time">{{m}}</span> : <span class="time">{{s}}</span></span>
       <a href="javascript:;" class="a2">
-        <img class="img2" src="./c6b7ac04e8c6cb827365c17bd74aef59.png" alt="">
+        <img class="img2" :src="datas.datas[3].right_image.image" alt="">
       </a>
     </div>
     <!--商品内容-->
