@@ -1,29 +1,11 @@
 <template>
   <div class="nav-Wrap" v-if="datas.menus">
     <div class="Nav-wrap"  ref="scrollLeft">
-      <el-menu class="el-menu-demo Nav-inner" mode="horizontal" >
-        <router-link to="/homeEpet/home">
-          <el-menu-item class="nav"  index="1">{{datas.menus[0].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="2" >{{datas.menus[1].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="3" >{{datas.menus[2].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="4" >{{datas.menus[3].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="5" >{{datas.menus[4].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="6" >{{datas.menus[5].menu_name}}</el-menu-item>
-        </router-link>
-        <router-link to="/catFoot">
-          <el-menu-item class="nav" index="7" >{{datas.menus[6].menu_name}}</el-menu-item>
-        </router-link>
-      </el-menu>
+      <ul class="Nav-inner">
+        <li class="navLi" v-for="(item, index) in datas.menus" :key="index">
+          <router-link :to=navName[index]>{{item.menu_name}}</router-link>
+        </li>
+      </ul>
     </div>
     <div class="contentWrap">
       <router-view></router-view>
@@ -37,15 +19,16 @@
   export default {
     data () {
       return {
-        navName: '/homeEpet/home'
+        navName: ['/homeEpet/home', '/catFoot', '/catFoot', '/catFoot', '/catFoot', '/catFoot', '/catFoot']
       }
     },
     computed: {
       ...mapState(['datas'])
     },
     mounted () {
-
       this.$nextTick(() => {
+
+
         setTimeout(() => {
           this.scroll = new BScroll(this.$refs.scrollLeft, {
             click: true,
@@ -53,9 +36,15 @@
             eventPassthrough: 'vertical',
             bounce: false
           })
+
+          let liNodes = document.querySelectorAll('.navLi')
+          liNodes[0].classList.add('active')
         }, 150)
       })
-    },
+
+
+
+    }
 
   }
 </script>
@@ -64,20 +53,27 @@
   .Nav-wrap
     width 100%
     position fixed
-    top 52px
+    top 42px
+    padding-top 10px
+    padding-bottom 10px
     z-index 10
+    background #fff
     .Nav-inner
-      width 180%
+      width 170%
       padding 0 10px
       font-size 14px
       display inline-block
-      a
+      li
         display inline-block
-        height 100%
-        .nav
+        a
           display inline-block
+          padding 5px 20px
+          height 100%
+          .nav
+            display inline-block
+      .active
+        border-bottom 1px solid #333
   .contentWrap
     position relative
-    top 115px
-    margin-bottom 115px
+    top 90px
 </style>

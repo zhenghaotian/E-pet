@@ -101,7 +101,7 @@
         height 10px
     .allBrand
       position absolute
-      bottom 30px
+      bottom 15%
       right 10px
       background rgba(0,0,0,.4)
       line-height 40px

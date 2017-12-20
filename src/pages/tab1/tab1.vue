@@ -64,9 +64,9 @@
     overflow hidden
     .tab1Left-wrap
       position absolute
-      z-index 10
+      z-index 9
       background #fff
-      width 70px
+      width 19%
       height 700px
       ul
         width 70px
@@ -85,7 +85,7 @@
     .tab1CardScroll
       height 570px
       .tab1Right-wrap
-        margin-left 75px
-        width 300px
+        margin-left 20%
+        width 80%
 
 </style>
